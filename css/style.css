@@ -120,6 +120,10 @@ img {
   color: var(--primary-text-color);
   padding-top: 32px;
   padding-bottom: 32px;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-nav .link:hover,
 .site-nav .link:focus {
@@ -165,6 +169,10 @@ img {
 .auth.list .link {
   display: flex;
   align-items: center;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .auth.list {
   margin: 0;
@@ -226,7 +234,7 @@ img {
   padding: 10px 32px;
   text-align: center;
 }
-
+/* Modal */
 .backdrop {
   position: fixed;
   top: 0;
@@ -240,6 +248,7 @@ img {
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 
 .modal {
@@ -317,6 +326,10 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-conteiner:hover,
@@ -432,18 +445,22 @@ img {
   align-items: center;
   width: 44px;
   height: 44px;
-  color: var(--icon-network-color);
+  fill: var(--icon-network-color);
+  border-radius: 50%;
+
+  transition-property: background-color, fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .network-link:hover,
 .network-link:focus {
-  color: #fff;
-  border-radius: 50%;
-  background-color: var(--accent-color);
+  fill: #fff;
 }
 
-.network-icon {
-  fill: currentColor;
+.network-link:hover,
+.network-link:focus {
+  background-color: var(--accent-color);
 }
 
 /*--------------------- Clients ------------------------------*/
@@ -461,6 +478,10 @@ img {
   color: var(--icon-network-color);
   border: 1px solid var(--icon-network-color);
   border-radius: 4px;
+
+  transition-property: color, border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client-item:not(:last-child) {
   margin-right: 30px;
@@ -485,6 +506,10 @@ img {
 
 .address-block .address {
   color: var(--white-text-color);
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address-block {
   font-style: normal;
@@ -498,6 +523,10 @@ img {
 }
 .address-block .contacts-footer {
   color: var(--white-text-color-60);
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address:hover,
 .address:focus {
@@ -554,6 +583,10 @@ img {
   height: 44px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-item + .social-item {
@@ -595,6 +628,10 @@ img {
   border-radius: 4px;
   cursor: pointer;
   background: var(--btn-bg-color);
+
+  transition-property: background-color, color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-portfolio:hover,
@@ -621,12 +658,51 @@ img {
   flex-basis: calc(100% / 3 - var(--card-set-gap));
   margin-right: var(--card-set-gap);
   margin-bottom: var(--card-set-gap);
+
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .list-projects .item:hover,
 .list-projects .item:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.card-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  transform: translateY(100%);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.list-projects .item:hover .overlay,
+.list-projects .item:focus .overlay {
+  transform: translateY(0);
+}
+
+.overlay-text {
+  margin: 0;
+  padding: 63px 24px 63px 24px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: #ffffff;
 }
 
 .name-portfolio {
